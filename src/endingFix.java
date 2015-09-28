@@ -1,8 +1,9 @@
-public class main {
+public class endingFix {
 	public static void main(String []args) {
 		String input[] = {"დღეს", "წიგნი", "არ", "წამიკითხია"};
 		boolean isMistake = false;
 		String lastWord;
+		String fixedWord;
 		char lastChar;
 		char beforeLast;
 		for(int i=0; i<input.length; i++) {
