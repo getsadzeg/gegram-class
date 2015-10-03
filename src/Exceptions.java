@@ -5,8 +5,6 @@ public class Exceptions {
 		String exceptions[] = {"ბრძოლობდა", "მჯერავს", "შეურაწყოფა", "შეურაცყოფა", "ნაყურები"};
 		String fixes[] = {"იბრძოდა", "მჯერა", "შეურაცხყოფა", "შეურაცხყოფა", "ნანახი"};
 		boolean isMistake = false;
-		int count = 0;
-		int index = 0;
 		for(int i=0; i<exceptions.length; i++) {
 			for(String c : input) {
 				if(exceptions[i] == c) {

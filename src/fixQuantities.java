@@ -1,25 +1,19 @@
 public class fixQuantities {
 	public static void main(String[] args) {
-		String input[] = {"იქ", "ვიღაცეები", "დგანან"};
-		String exceptions[] = {"ვიღაცეები", "რაღაცეები"};
+		String input[] = {"იქ", "ბევრები", "არიან"};
+		String mistakes[] = {"ვიღაცეები", "რაღაცეები", "ხალხები", "ბევრები", "ცოტები"};
+		String fixes[] = {"ვიღაცები", "რაღაცები", "ხალხი", "ბევრი", "ცოტა"};
 		boolean isMistake = false;
 		String toFix = null;
-		for(int i=0; i<input.length; i++) {
-				if(input[i] == exceptions[0] || input[i] == exceptions[1]) {
-					isMistake = true;
-					if(input[i] == "ვიღაცეები") toFix = "'ვიღაცები'";
-					else if(input[i] == "რაღაცეები") toFix = "'რაღაცები'";
-				}
-				while(isMistake == true) {
-					System.out.println(isMistake);
-					break;
-				}
-				if(isMistake == true) {
-					break;
-
+		for(int i=0; i<mistakes.length; i++) {
+				for(String c : input) {
+					if(mistakes[i] == c) {
+						isMistake = true;
+						System.out.println(c + " Detected");
+						System.out.println("Mistake fix: " + fixes[i]);
+					}
 				}
 			}
-			if(isMistake == false) System.out.println(isMistake);
-			System.out.println("Mistake fix: " + toFix);
+			if(isMistake == false) System.out.println("No detections");
 	}
 }
