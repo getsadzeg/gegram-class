@@ -4,7 +4,6 @@ public class fixQuantities {
 		String mistakes[] = {"ვიღაცეები", "რაღაცეები", "ხალხები", "ბევრები", "ცოტები"};
 		String fixes[] = {"ვიღაცები", "რაღაცები", "ხალხი", "ბევრი", "ცოტა"};
 		boolean isMistake = false;
-		String toFix = null;
 		for(int i=0; i<mistakes.length; i++) {
 				for(String c : input) {
 					if(mistakes[i] == c) {

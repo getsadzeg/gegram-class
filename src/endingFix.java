@@ -14,7 +14,6 @@ public class endingFix {
 			if(lastChar == 'ა' && beforeLast == 'ი') isMistake = true;
 			System.out.println(isMistake);
 			break;
-			//if(lastWord.charAt(lastWord.length()-1) == 'ა' && lastWord.charAt(lastWord.length()-2) == 'ი') isMistake == true;
 		}
 	}
 }
