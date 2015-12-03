@@ -1,6 +1,6 @@
 package src;
 import java.util.Arrays;
-public class Gegram {
+public class Gegram implements GegramServices {
 	private String[] input;
 	private boolean isMistake = false;
 	private String mistake = "";
@@ -19,6 +19,7 @@ public class Gegram {
 	public Gegram(String[] input) {
 		this.input = input;
 	}
+	@Override
 	public void parse(boolean correctOrNot) {
 		for(int i=0; i<barbarismes.length; i++) {
 			for(String c : input) {
@@ -28,7 +29,7 @@ public class Gegram {
 					System.out.println(c + " Detected");
 					if(correctOrNot == true) System.out.println("Mistake fix: " + matchers[i]);
 				}
-				//word = barbarismes[i];
+				
 				
 			}
 		}
