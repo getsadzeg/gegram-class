@@ -12,6 +12,8 @@ public class Parse extends Gegram {
 	    "ბოდიში", "ნახვამდის", "შემადგენლობა", "არაყი", "ლუდი", "სახურავი", "საშინელება", "შეკეთება", "მიკროავტობუსი", "მიკროავტობუსი", "მზესუმზირა", "შხაპი", "ელვაშესაკრავი", "წრე",
 	    "საწოვარა", "პერანგი", "საბურავი", "სანთებელა" , "შეკვრა"};
 	protected String marks[] = {"მა", "ს", "ის", "ით", "ად", "ო"};
+	protected String mistakeData[] = {"ბრძოლობდა", "მჯერავს", "შეურაწყოფა", "შეურაცყოფა", "ნაყურები"};
+	protected String fixesData[] = {"იბრძოდა", "მჯერა", "შეურაცხყოფა", "შეურაცხყოფა", "ნანახი"};
 	public Parse() {
 
 	}
@@ -19,17 +21,30 @@ public class Parse extends Gegram {
 		super(input);
 	}
 	@Override
-	public void parseBarbarism(boolean correctOrNot) {
+	public void parseBarbarism() {
 		for(int i=0; i<barbarismes.length; i++) {
 			for(String c : input) {
 				if(barbarismes[i] == c) {
 					isMistake = true;
 					mistake = c;
 					System.out.println(c + " Detected");
-					if(correctOrNot == true) System.out.println("Mistake fix: " + matchers[i]);
+					System.out.println("Parsed word: " + matchers[i]);
 				}
 				
 				
+			}
+		}
+		if(isMistake == false) System.out.println("No detections");
+	}
+	@Override
+	public void parseGrammar() {
+		for(int i=0; i<mistakeData.length; i++) {
+			for(String c : input) {
+				if(mistakeData[i] == c) {
+					isMistake = true;
+					System.out.println(c + " Detected");
+					System.out.println("Parsed word: " + fixesData[i]);
+				}
 			}
 		}
 		if(isMistake == false) System.out.println("No detections");
