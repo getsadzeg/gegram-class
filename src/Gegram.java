@@ -7,6 +7,6 @@ public abstract class Gegram {
 	public Gegram(String[] input) {
 		this.input = input;
 	}
-	public abstract void parseBarbarism();
-	public abstract void parseGrammar();
+	public abstract String parseBarbarism();
+	public abstract String parseGrammar();
 }

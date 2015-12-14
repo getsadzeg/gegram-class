@@ -2,7 +2,7 @@ package src;
 import java.util.Arrays;
 public class Parse extends Gegram {
 	protected boolean isMistake = false;
-	protected String mistake = "";
+	protected String Parsed = "";
 	protected String barbarismes[] = {"ნასკი", "სერვისი", "პროსტა", "პროსტო", "შკაფი", "გარდერობი", "ბრატ", "ბრაკი", "შნუროკი", "ნაუშნიკი", "ნაოშნიკი", "კაროჩე", "კარტა", 
 		"კუხნა", "პოლი", "სპიჩკა", "ვაფშე", "რაკოვინა", "ლუსტრა", "შლაგბაუმი", "კარტოშკა", "პადვალი", "პატკატი", "ტუშონკა", "გრეჩიხა", "სუპი", "ვსო", "ვსიო", "ხარაშო",
 		"იზვინი", "პაკა", "სასტავი", "ვოდკა", "პივა", "კრიშა", "უჟასი", "რემონტი", "მარშტრუტკა", "მარშუტკა", "სემიჩკა", "დუში", "ზმეიკა", "კრუგი",
@@ -21,32 +21,34 @@ public class Parse extends Gegram {
 		super(input);
 	}
 	@Override
-	public void parseBarbarism() {
+	public String parseBarbarism() {
 		for(int i=0; i<barbarismes.length; i++) {
 			for(String c : input) {
 				if(barbarismes[i] == c) {
 					isMistake = true;
-					mistake = c;
-					System.out.println(c + " Detected");
-					System.out.println("Parsed word: " + matchers[i]);
+					System.out.println(c + " Detected. Parsed word");
+                                        Parsed = matchers[i];
+                                        
 				}
 				
 				
 			}
 		}
-		if(isMistake == false) System.out.println("No detections");
+		if(isMistake == false) return "";
+                return Parsed;
 	}
 	@Override
-	public void parseGrammar() {
+	public String parseGrammar() {
 		for(int i=0; i<mistakeData.length; i++) {
 			for(String c : input) {
 				if(mistakeData[i] == c) {
 					isMistake = true;
-					System.out.println(c + " Detected");
-					System.out.println("Parsed word: " + fixesData[i]);
+					System.out.println(c + " Detected. Parsed word:");
+					Parsed = fixesData[i];
 				}
 			}
 		}
-		if(isMistake == false) System.out.println("No detections");
+		if(isMistake == false) return "";
+                return Parsed;
 	}
 }
