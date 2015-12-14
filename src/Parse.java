@@ -20,6 +20,22 @@ public class Parse extends Gegram {
 	public Parse(String[] input) {
 		super(input);
 	}
+        @Override
+        public boolean isConsonant(String data) {
+            switch(data.charAt(data.length()-1)) {
+                case 'ა': 
+                case 'ე':
+                case 'ო':
+                case 'უ':
+                return false;
+            }
+            return true;
+        }
+        @Override
+        public String formFirst(String data) {
+            if(isConsonant(data)) return data + "ი";
+            return data;
+        }
 	@Override
 	public String parseBarbarism() {
 		for(int i=0; i<barbarismes.length; i++) {
