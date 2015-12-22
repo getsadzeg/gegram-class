@@ -1,4 +1,5 @@
 package src;
+
 public abstract class Gegram {
 	protected String[] input;
 	public Gegram() {

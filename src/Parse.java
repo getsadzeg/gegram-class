@@ -1,4 +1,5 @@
 package src;
+
 public class Parse extends Gegram {
 	int index = 0;
 	int matcherindex = 0;
@@ -34,6 +35,7 @@ public class Parse extends Gegram {
         }
 	   @Override
 	   public boolean isVowel(String data) {
+	   	   if (data.length() < 5) return true;
 		   switch(data.charAt(data.length()-1)) {
 			   case 'ა':
 			   case 'ე':
@@ -111,7 +113,7 @@ public class Parse extends Gegram {
 				if(barbarismes[i].equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-                                        Parsed = matchers[i];
+                    Parsed = matchers[i];
 
 				}
 				if(formSecond(barbarismes[i]).equals(c)) {

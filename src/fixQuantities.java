@@ -1,3 +1,5 @@
+package src;
+
 public class fixQuantities {
 	public static void main(String[] args) {
 		String input[] = {"იქ", "ბევრები", "არიან"};
