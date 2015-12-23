@@ -46,11 +46,6 @@ public class Parse extends Gegram {
 		   return false;
 
 	   }
-        @Override
-        public String formFirst(String data) {
-            if(endConsonant(data)) return data + "ი";
-            return data;
-        }
 	    @Override
 		public String formSecond(String data) {
 			if(isVowel(data)) {
@@ -164,7 +159,7 @@ public class Parse extends Gegram {
 				}
 			}
 		}
-		if(isMistake == false) return "";
+		if(isMistake == false) return "no mistake";
                 return Parsed;
 	}
 }

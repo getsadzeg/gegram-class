@@ -14,7 +14,6 @@ public abstract class Gegram {
         public abstract String parseGrammar();
         public abstract boolean endConsonant(String data);
         public abstract boolean isVowel(String data);
-        public abstract String formFirst(String data);
         public abstract String formSecond(String data);
         public abstract String formThird(String data);
         public abstract String formFourth(String data);
