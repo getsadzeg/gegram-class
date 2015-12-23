@@ -136,7 +136,6 @@ public class Parse extends Gegram {
 					System.out.println(c + " Detected. Parsed word");
 					Parsed = formSixth(matchers[i]);
 				}
-				System.out.println(formSeventh(barbarismes[i]));
 				if(formSeventh(barbarismes[i]).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
