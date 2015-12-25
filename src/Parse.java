@@ -81,9 +81,9 @@ public class Parse extends Gegram {
 	   }
 	   @Override
 	   public String formSeventh(String data) {
-		   if(isVowel(data)) return data;
-		   if(endConsonant(data)) return data;
-		   return data.substring(0, data.length()-1);
+	   	   String newstring;
+		   if(isVowel(data)) return data + 'ვ';
+		   return data.substring(0, data.length()-1) + "ო";
 	   }
 	  @Override
 	   public int returnIndex(String[] data) {
