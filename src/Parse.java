@@ -144,7 +144,7 @@ public class Parse extends Gegram {
 				
 			}
 		}
-		if(isMistake == false) return "no mistake";
+		if(!isMistake) return "no mistake";
                 return Parsed;
 	}
 	@Override
@@ -158,7 +158,7 @@ public class Parse extends Gegram {
 				}
 			}
 		}
-		if(isMistake == false) return "no mistake";
+		if(!isMistake) return "no mistake";
                 return Parsed;
 	}
 }
