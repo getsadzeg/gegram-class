@@ -5,16 +5,6 @@ public class Parse extends Gegram {
 	int matcherindex = 0;
 	protected boolean isMistake = false;
 	protected String Parsed = "";
-	protected String barbarismes[] = {"ნასკი", "სერვისი", "პროსტა", "პროსტო", "შკაფი", "გარდერობი", "ბრატ", "ბრაკი", "შნუროკი", "ნაუშნიკი", "ნაოშნიკი", "კაროჩე", "კარტა",
-		"კუხნა", "პოლი", "სპიჩკა", "ვაფშე", "რაკოვინა", "ლუსტრა", "შლაგბაუმი", "კარტოშკა", "პადვალი", "პატკატი", "ტუშონკა", "გრეჩიხა", "სუპი", "ვსო", "ვსიო", "ხარაშო",
-		"იზვინი", "პაკა", "სასტავი", "ვოდკა", "პივა", "კრიშა", "უჟასი", "რემონტი", "მარშტრუტკა", "მარშუტკა", "სემიჩკა", "დუში", "ზმეიკა", "კრუგი",
-		"სოსკა", "მაიკა", "პაკრიშკა", "ზაჟიგალკა", "პაჩკა", "ოკ"};
-	protected String matchers[] = {"წინდა", "მომსახურება", "უბრალოდ", "უბრალოდ", "კარადა", "კარადა", "ძმაო", "ხარვეზიანი", "თასმა", "ყურსასმენი", "ყურსასმენი", "მოკლედ", "ბარათი", 
-		"სამზარეულო", "იატაკი", "ასანთი", "საერთოდ", "ნიჟარა", "ნათურა", "", "კარტოფილი", "სარდაფი", "მოცელვა", "", "წიწიბურა", "წვნიანი", "მორჩა", "მორჩა", "კარგი",
-	    "ბოდიში", "ნახვამდის", "შემადგენლობა", "არაყი", "ლუდი", "სახურავი", "საშინელება", "შეკეთება", "მიკროავტობუსი", "მიკროავტობუსი", "მზესუმზირა", "შხაპი", "ელვაშესაკრავი", "წრე",
-	    "საწოვარა", "პერანგი", "საბურავი", "სანთებელა" , "შეკვრა", "კარგი"};
-	protected String mistakeData[] = {"ბრძოლობდა", "მჯერავს", "შეურაწყოფა", "შეურაცყოფა", "ნაყურები"};
-	protected String fixesData[] = {"იბრძოდა", "მჯერა", "შეურაცხყოფა", "შეურაცხყოფა", "ნანახი"};
 	public Parse() {
 
 	}
@@ -88,8 +78,8 @@ public class Parse extends Gegram {
 	  @Override
 	   public int returnIndex(String[] data) {
 		   for(int i=0; i<data.length; i++) {
-			   for(int j=0; j<barbarismes.length; j++) {
-				   if(data[i].equals(barbarismes[j])) {
+			   for(int j=0; j<Arrays.barbarismes.length; j++) {
+				   if(data[i].equals(Arrays.barbarismes[j])) {
 					   index = i;
 					   matcherindex = j;
 				   }
@@ -99,47 +89,47 @@ public class Parse extends Gegram {
 	   }
 	 @Override
 	 public String returnMatcher() {
-		 return matchers[matcherindex];
+		 return Arrays.matchers[matcherindex];
 	 }
 	@Override
 	public String parseBarbarism() {
-		for(int i=0; i<barbarismes.length; i++) {
+		for(int i=0; i<Arrays.barbarismes.length; i++) {
 			for(String c : input) {
-				if(barbarismes[i].equals(c)) {
+				if(Arrays.barbarismes[i].equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-                    Parsed = matchers[i];
+                    Parsed = Arrays.matchers[i];
 
 				}
-				if(formSecond(barbarismes[i]).equals(c)) {
+				if(formSecond(Arrays.barbarismes[i]).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSecond(matchers[i]);
+					Parsed = formSecond(Arrays.matchers[i]);
 				}
-				if(formThird(barbarismes[i]).equals(c)) {
+				if(formThird(Arrays.barbarismes[i]).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formThird(matchers[i]);
+					Parsed = formThird(Arrays.matchers[i]);
 				}
-				if(formFourth(barbarismes[i]).equals(c)) {
+				if(formFourth(Arrays.barbarismes[i]).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formFourth(matchers[i]);
+					Parsed = formFourth(Arrays.matchers[i]);
 				}
-				if(formFifth(barbarismes[i]).equals(c)) {
+				if(formFifth(Arrays.barbarismes[i]).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formFifth(matchers[i]);
+					Parsed = formFifth(Arrays.matchers[i]);
 				}
-				if(formSixth(barbarismes[i]).equals(c)) {
+				if(formSixth(Arrays.barbarismes[i]).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSixth(matchers[i]);
+					Parsed = formSixth(Arrays.matchers[i]);
 				}
-				if(formSeventh(barbarismes[i]).equals(c)) {
+				if(formSeventh(Arrays.barbarismes[i]).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSeventh(matchers[i]);
+					Parsed = formSeventh(Arrays.matchers[i]);
 				}
 				
 			}
@@ -149,12 +139,12 @@ public class Parse extends Gegram {
 	}
 	@Override
 	public String parseGrammar() {
-		for(int i=0; i<mistakeData.length; i++) {
+		for(int i=0; i<Arrays.mistakeData.length; i++) {
 			for(String c : input) {
-				if(mistakeData[i] == c) {
+				if(Arrays.mistakeData[i] == c) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word:");
-					Parsed = fixesData[i];
+					Parsed = Arrays.fixesData[i];
 				}
 			}
 		}

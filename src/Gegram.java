@@ -10,7 +10,7 @@ public abstract class Gegram {
 	}
         public abstract String returnMatcher();
         public abstract int returnIndex(String[] data);
-	    public abstract String parseBarbarism();
+	public abstract String parseBarbarism();
         public abstract String parseGrammar();
         public abstract boolean endConsonant(String data);
         public abstract boolean isVowel(String data);
