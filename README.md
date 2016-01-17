@@ -1,4 +1,4 @@
-# gegram
+#About
 
 Gegram is library which helps you to integrate Georgian grammar utilities in Java. It's originally created to throw barbarismes out of input.
 
@@ -9,10 +9,10 @@ Just clone repository with
 ```
 git clone https://github.com/getsadzeg/gegram-class.git
 ```
-Now copy package named 'src' to your project and access it's classes via:
+Now copy folder named 'gegram' to your project and access it's classes via:
 
 ```java
-import src.*;
+import gegram.lib.*;
 ```
 
 After that you can create Gegram object and parse input(it must be array):
