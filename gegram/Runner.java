@@ -1,4 +1,5 @@
-package src;
+package gegram;
+import gegram.lib.*;
 
 public class Runner {
 	public static void main(String[] args) {

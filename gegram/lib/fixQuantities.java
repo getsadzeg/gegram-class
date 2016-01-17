@@ -1,4 +1,4 @@
-package src;
+package gegram.lib;
 
 public class fixQuantities {
 	public static void main(String[] args) {

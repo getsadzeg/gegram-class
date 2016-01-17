@@ -1,4 +1,4 @@
-package src;
+package gegram.lib;
 
 public class Parse extends Gegram {
 	int index = 0;

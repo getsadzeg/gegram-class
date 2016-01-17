@@ -1,4 +1,4 @@
-package src;
+package gegram.lib;
 
 public class Arrays {
 	public final static String barbarismes[] = {"ნასკი", "სერვისი", "პროსტა", "პროსტო", "შკაფი", "გარდერობი", "ბრატ", "ბრაკი", "შნუროკი", "ნაუშნიკი", "ნაოშნიკი", "კაროჩე", "კარტა",

@@ -1,4 +1,4 @@
-package src;
+package gegram.lib;
 
 public abstract class Gegram {
 	protected String[] input;
