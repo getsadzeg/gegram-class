@@ -1,5 +1,6 @@
 package gegram.lib;
-
+import java.util.*;
+import java.util.Map.Entry;
 public class Parse extends Gegram {
 	int index = 0;
 	int matcherindex = 0;
@@ -93,51 +94,56 @@ public class Parse extends Gegram {
 	 }
 	@Override
 	public String parseBarbarism() {
-		for(int i=0; i<Arrays.barbarismes.length; i++) {
+                Iterator entries = Data.data.entrySet().iterator();
+		while(entries.hasNext()) {
 			for(String c : input) {
-				if(Arrays.barbarismes[i].equals(c)) {
+                Entry thisentry = (Entry)entries.next();
+                String key = (String) thisentry.getKey();
+                String value = (String) thisentry.getValue();
+				if(key.equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-                    Parsed = Arrays.matchers[i];
+                                        Parsed = value;
 
 				}
-				if(formSecond(Arrays.barbarismes[i]).equals(c)) {
+				if(formSecond(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSecond(Arrays.matchers[i]);
+					Parsed = formSecond(value);
 				}
-				if(formThird(Arrays.barbarismes[i]).equals(c)) {
+				if(formThird(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formThird(Arrays.matchers[i]);
+					Parsed = formThird(value);
 				}
-				if(formFourth(Arrays.barbarismes[i]).equals(c)) {
+				if(formFourth(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formFourth(Arrays.matchers[i]);
+					Parsed = formFourth(value);
 				}
-				if(formFifth(Arrays.barbarismes[i]).equals(c)) {
+				if(formFifth(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formFifth(Arrays.matchers[i]);
+					Parsed = formFifth(value);
 				}
-				if(formSixth(Arrays.barbarismes[i]).equals(c)) {
+				if(formSixth(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSixth(Arrays.matchers[i]);
+					Parsed = formSixth(value);
 				}
-				if(formSeventh(Arrays.barbarismes[i]).equals(c)) {
+				if(formSeventh(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSeventh(Arrays.matchers[i]);
+					Parsed = formSeventh(value);
 				}
 				
 			}
 		}
+                
 		if(!isMistake) return "no mistake";
                 return Parsed;
 	}
-	@Override
+	@Override //requires to fix
 	public String parseGrammar() {
 		for(int i=0; i<Arrays.mistakeData.length; i++) {
 			for(String c : input) {
