@@ -1,6 +1,6 @@
 package gegram.lib;
-
-public class Arrays {
+import java.util.HashMap;
+public class Data {
 	public final static String barbarismes[] = {"ნასკი", "სერვისი", "პროსტა", "პროსტო", "შკაფი", "გარდერობი", "ბრატ", "ბრაკი", "შნუროკი", "ნაუშნიკი", "ნაოშნიკი", "კაროჩე", "კარტა",
 		"კუხნა", "პოლი", "სპიჩკა", "ვაფშე", "რაკოვინა", "ლუსტრა", "შლაგბაუმი", "კარტოშკა", "პადვალი", "პატკატი", "ტუშონკა", "გრეჩიხა", "სუპი", "ვსო", "ვსიო", "ხარაშო",
 		"იზვინი", "პაკა", "სასტავი", "ვოდკა", "პივა", "კრიშა", "უჟასი", "რემონტი", "მარშტრუტკა", "მარშუტკა", "სემიჩკა", "დუში", "ზმეიკა", "კრუგი",
@@ -11,6 +11,19 @@ public class Arrays {
 	    "საწოვარა", "პერანგი", "საბურავი", "სანთებელა" , "შეკვრა", "კარგი"};
 	public final static String mistakeData[] = {"ბრძოლობდა", "მჯერავს", "შეურაწყოფა", "შეურაცყოფა", "ნაყურები"};
 	public final static String fixesData[] = {"იბრძოდა", "მჯერა", "შეურაცხყოფა", "შეურაცხყოფა", "ნანახი"};
-
-
+	public final static HashMap data = new HashMap<String,String>();
+    public final static HashMap grammarData = new HashMap<String,String>();
+	public static void dataInitialize() {
+		for(int i=0; i<barbarismes.length; i++) {
+			data.put(barbarismes[i], matchers[i]);
+		}
+	}
+    public static void grammarInitialize() {
+            for(int i=0; i<mistakeData.length; i++) {
+                grammarData.put(mistakeData[i], fixesData[i]);
+            }
+        }
+	public static boolean getBoolean() {
+		return barbarismes.length == matchers.length;
+	}
 }

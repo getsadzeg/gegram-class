@@ -1,15 +1,18 @@
 package gegram.lib;
-
+import java.util.*;
+import java.util.Map.Entry;
 public class Parse extends Gegram {
 	int index = 0;
 	int matcherindex = 0;
 	protected boolean isMistake = false;
 	protected String Parsed = "";
 	public Parse() {
-
+            
 	}
 	public Parse(String[] input) {
 		super(input);
+        Data.dataInitialize();
+        Data.grammarInitialize();
 	}
         @Override
         public boolean endConsonant(String data) {
@@ -75,7 +78,7 @@ public class Parse extends Gegram {
 		   if(isVowel(data)) return data + 'ვ';
 		   return data.substring(0, data.length()-1) + "ო";
 	   }
-	  @Override
+	  /*@Override
 	   public int returnIndex(String[] data) {
 		   for(int i=0; i<data.length; i++) {
 			   for(int j=0; j<Arrays.barbarismes.length; j++) {
@@ -88,67 +91,76 @@ public class Parse extends Gegram {
 		   return index;
 	   }
 	 @Override
-	 public String returnMatcher() {
-		 return Arrays.matchers[matcherindex];
-	 }
+	 public String returnMatcher() { 
+		 return Arrays[matcherindex]; 
+	 }*/
 	@Override
 	public String parseBarbarism() {
-		for(int i=0; i<Arrays.barbarismes.length; i++) {
-			for(String c : input) {
-				if(Arrays.barbarismes[i].equals(c)) {
+                Iterator entries = Data.data.entrySet().iterator();
+		        while(entries.hasNext()) {
+                       Entry thisentry = (Entry)entries.next();
+			           for(String c : input) {
+                           String key = (String) thisentry.getKey();
+                           String value = (String) thisentry.getValue();
+				if(key.equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-                    Parsed = Arrays.matchers[i];
+                    Parsed = value;
 
 				}
-				if(formSecond(Arrays.barbarismes[i]).equals(c)) {
+				if(formSecond(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSecond(Arrays.matchers[i]);
+					Parsed = formSecond(value);
 				}
-				if(formThird(Arrays.barbarismes[i]).equals(c)) {
+				if(formThird(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formThird(Arrays.matchers[i]);
+					Parsed = formThird(value);
 				}
-				if(formFourth(Arrays.barbarismes[i]).equals(c)) {
+				if(formFourth(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formFourth(Arrays.matchers[i]);
+					Parsed = formFourth(value);
 				}
-				if(formFifth(Arrays.barbarismes[i]).equals(c)) {
+				if(formFifth(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formFifth(Arrays.matchers[i]);
+					Parsed = formFifth(value);
 				}
-				if(formSixth(Arrays.barbarismes[i]).equals(c)) {
+				if(formSixth(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSixth(Arrays.matchers[i]);
+					Parsed = formSixth(value);
 				}
-				if(formSeventh(Arrays.barbarismes[i]).equals(c)) {
+				if(formSeventh(key).equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-					Parsed = formSeventh(Arrays.matchers[i]);
+					Parsed = formSeventh(value);
 				}
 				
 			}
 		}
+                
 		if(!isMistake) return "no mistake";
                 return Parsed;
 	}
 	@Override
 	public String parseGrammar() {
-		for(int i=0; i<Arrays.mistakeData.length; i++) {
+        Iterator gramm = Data.grammarData.entrySet().iterator();
+		while(gramm.hasNext())
 			for(String c : input) {
-				if(Arrays.mistakeData[i] == c) {
+                Entry thisentry = (Entry)gramm.next();
+                String key = (String) thisentry.getKey();
+                String value = (String) thisentry.getValue();
+				if(key.equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word:");
-					Parsed = Arrays.fixesData[i];
+					Parsed = value;
 				}
 			}
-		}
-		if(!isMistake) return "no mistake";
+                if(!isMistake) return "no mistake";
                 return Parsed;
+		}
+		
 	}
-}
