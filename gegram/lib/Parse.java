@@ -7,10 +7,12 @@ public class Parse extends Gegram {
 	protected boolean isMistake = false;
 	protected String Parsed = "";
 	public Parse() {
-
+            
 	}
 	public Parse(String[] input) {
 		super(input);
+        Data.dataInitialize();
+        Data.grammarInitialize();
 	}
         @Override
         public boolean endConsonant(String data) {
@@ -76,7 +78,7 @@ public class Parse extends Gegram {
 		   if(isVowel(data)) return data + 'ვ';
 		   return data.substring(0, data.length()-1) + "ო";
 	   }
-	  @Override
+	  /*@Override
 	   public int returnIndex(String[] data) {
 		   for(int i=0; i<data.length; i++) {
 			   for(int j=0; j<Arrays.barbarismes.length; j++) {
@@ -89,21 +91,21 @@ public class Parse extends Gegram {
 		   return index;
 	   }
 	 @Override
-	 public String returnMatcher() {
-		 return Arrays.matchers[matcherindex];
-	 }
+	 public String returnMatcher() { 
+		 return Arrays[matcherindex]; 
+	 }*/
 	@Override
 	public String parseBarbarism() {
                 Iterator entries = Data.data.entrySet().iterator();
-		while(entries.hasNext()) {
-			for(String c : input) {
-                Entry thisentry = (Entry)entries.next();
-                String key = (String) thisentry.getKey();
-                String value = (String) thisentry.getValue();
+		        while(entries.hasNext()) {
+                       Entry thisentry = (Entry)entries.next();
+			           for(String c : input) {
+                           String key = (String) thisentry.getKey();
+                           String value = (String) thisentry.getValue();
 				if(key.equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-                                        Parsed = value;
+                    Parsed = value;
 
 				}
 				if(formSecond(key).equals(c)) {
@@ -143,18 +145,22 @@ public class Parse extends Gegram {
 		if(!isMistake) return "no mistake";
                 return Parsed;
 	}
-	@Override //requires to fix
+	@Override
 	public String parseGrammar() {
-		for(int i=0; i<Arrays.mistakeData.length; i++) {
+        Iterator gramm = Data.grammarData.entrySet().iterator();
+		while(gramm.hasNext())
 			for(String c : input) {
-				if(Arrays.mistakeData[i] == c) {
+                Entry thisentry = (Entry)gramm.next();
+                String key = (String) thisentry.getKey();
+                String value = (String) thisentry.getValue();
+				if(key.equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word:");
-					Parsed = Arrays.fixesData[i];
+					Parsed = value;
 				}
 			}
-		}
-		if(!isMistake) return "no mistake";
+                if(!isMistake) return "no mistake";
                 return Parsed;
+		}
+		
 	}
-}
