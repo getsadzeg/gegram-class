@@ -1,16 +1,17 @@
 package gegram.lib;
 
 public abstract class Gegram {
-	protected String[] input;
-	public Gegram() {
+        protected String[] input;
+        public Gegram() {
 
-	}
-	public Gegram(String[] input) {
-		this.input = input;
-	}
-        public abstract String returnMatcher();
-        public abstract int returnIndex(String[] data);
-	public abstract String parseBarbarism();
+        }
+        public Gegram(String[] input) {
+                this.input = input;
+        }
+        /*public abstract String returnMatcher();
+        public abstract int returnIndex(String[] data);*/
+        //commented for some time
+        public abstract String parseBarbarism();
         public abstract String parseGrammar();
         public abstract boolean endConsonant(String data);
         public abstract boolean isVowel(String data);
