@@ -10,7 +10,7 @@ public class Parse extends Gegram {
             
 	}
 	public Parse(String[] input) {
-		super(input);
+	super(input);
         Data.dataInitialize();
         Data.grammarInitialize();
 	}
@@ -19,7 +19,7 @@ public class Parse extends Gegram {
             switch(data.charAt(data.length()-1)) {
                 case 'ა': 
                 case 'ე':
-				case 'ი':
+		case 'ი':
                 case 'ო':
                 case 'უ':
                 return false;
@@ -34,7 +34,7 @@ public class Parse extends Gegram {
 			   case 'ე':
 			   case 'ო':
 			   case 'უ':
-				   return true;
+		           return true;
 		   }
 		   return false;
 
@@ -42,7 +42,6 @@ public class Parse extends Gegram {
 	    @Override
 		public String formSecond(String data) {
 			if(isVowel(data)) {
-
 				return data + 'მ';
 			}
 			if(endConsonant(data)) return data + "მა";
@@ -98,15 +97,14 @@ public class Parse extends Gegram {
 	public String parseBarbarism() {
                 Iterator entries = Data.data.entrySet().iterator();
 		        while(entries.hasNext()) {
-                       Entry thisentry = (Entry)entries.next();
-			           for(String c : input) {
+                           Entry thisentry = (Entry)entries.next();
+			   for(String c : input) {
                            String key = (String) thisentry.getKey();
                            String value = (String) thisentry.getValue();
 				if(key.equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word");
-                    Parsed = value;
-
+                                         Parsed = value;
 				}
 				if(formSecond(key).equals(c)) {
 					isMistake = true;
@@ -150,9 +148,9 @@ public class Parse extends Gegram {
         Iterator gramm = Data.grammarData.entrySet().iterator();
 		while(gramm.hasNext())
 			for(String c : input) {
-                Entry thisentry = (Entry)gramm.next();
-                String key = (String) thisentry.getKey();
-                String value = (String) thisentry.getValue();
+                        Entry thisentry = (Entry)gramm.next();
+                        String key = (String) thisentry.getKey();
+                        String value = (String) thisentry.getValue();
 				if(key.equals(c)) {
 					isMistake = true;
 					System.out.println(c + " Detected. Parsed word:");
