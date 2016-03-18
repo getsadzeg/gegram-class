@@ -2,6 +2,8 @@
 
 Gegram is library which helps you to integrate Georgian grammar utilities in Java. It's originally created to throw barbarismes out of input.
 
+Note: No need of internet connection. Everything is offline and local.
+
 #Usage
 
 Just clone repository with 
