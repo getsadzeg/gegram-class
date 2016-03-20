@@ -6,6 +6,8 @@ public class Parse extends Gegram {
 	int matcherindex = 0;
 	protected boolean isMistake = false;
 	protected String Parsed = "";
+	public final static String NO_MISTAKE = "no mistake";
+
 	public Parse() {
 
 	}
@@ -140,7 +142,7 @@ public class Parse extends Gegram {
 			}
 		}
 
-		if (!isMistake) return "no mistake";
+		if (!isMistake) return NO_MISTAKE;
 		return Parsed;
 	}
 	@Override
@@ -157,7 +159,7 @@ public class Parse extends Gegram {
 					Parsed = value;
 				}
 			}
-		if (!isMistake) return "no mistake";
+		if (!isMistake) return NO_MISTAKE;
 		return Parsed;
 	}
 
