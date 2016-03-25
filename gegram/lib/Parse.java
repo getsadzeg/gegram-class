@@ -105,37 +105,37 @@ public class Parse extends Gegram {
 				String value = (String) thisentry.getValue();
 				if (key.equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word");
+					System.out.println(c + " Detected.");
 					Parsed = value;
 				}
 				if (formSecond(key).equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word");
+					System.out.println(c + " Detected.");
 					Parsed = formSecond(value);
 				}
 				if (formThird(key).equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word");
+					System.out.println(c + " Detected.");
 					Parsed = formThird(value);
 				}
 				if (formFourth(key).equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word");
+					System.out.println(c + " Detected.");
 					Parsed = formFourth(value);
 				}
 				if (formFifth(key).equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word");
+					System.out.println(c + " Detected.");
 					Parsed = formFifth(value);
 				}
 				if (formSixth(key).equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word");
+					System.out.println(c + " Detected.");
 					Parsed = formSixth(value);
 				}
 				if (formSeventh(key).equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word");
+					System.out.println(c + " Detected.");
 					Parsed = formSeventh(value);
 				}
 
@@ -143,7 +143,7 @@ public class Parse extends Gegram {
 		}
 
 		if (!isMistake) return NO_MISTAKE;
-		return Parsed;
+		return "Parsed word: " + Parsed;
 	}
 	@Override
 	public String parseGrammar() {
@@ -155,12 +155,12 @@ public class Parse extends Gegram {
 				String value = (String) thisentry.getValue();
 				if (key.equals(c)) {
 					isMistake = true;
-					System.out.println(c + " Detected. Parsed word:");
+					System.out.println(c + " Detected.");
 					Parsed = value;
 				}
 			}
 		if (!isMistake) return NO_MISTAKE;
-		return Parsed;
+		return "Parsed Word: " + Parsed;
 	}
 
 }
