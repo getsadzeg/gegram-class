@@ -13,8 +13,8 @@ public class Data {
 	                                        };
 	public static String mistakeData[] = {"ბრძოლობდა", "მჯერავს", "შეურაწყოფა", "შეურაცყოფა", "ნაყურები"};
 	public static String fixesData[] = {"იბრძოდა", "მჯერა", "შეურაცხყოფა", "შეურაცხყოფა", "ნანახი"};
-	public final static HashMap data = new HashMap<String, String>();
-	public final static HashMap grammarData = new HashMap<String, String>();
+	public final static HashMap<String,String> data = new HashMap<>();
+	public final static HashMap<String,String> grammarData = new HashMap<>();
 	public static void dataInitialize() {
 		for (int i = 0; i < barbarismes.length; i++) {
 			data.put(barbarismes[i], matchers[i]);
